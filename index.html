@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#fffdf8">
+<title>La Casita de las Marquesitas</title>
+<meta name="description" content="La Casita de las Marquesitas · postres, marquesitas y bebidas.">
+<style>
+:root{
+  --paper:#fffdf8; --ink:#101010; --muted:#6f6b65; --line:#ddd8ce;
+  --blue:#154cff; --orange:#ff8d12; --pink:#f063b7; --lime:#6c9f2a; --violet:#5920b8;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none} img{display:block;width:100%;height:100%;object-fit:cover}
+button{font:inherit}.serif{font-family:Georgia,'Times New Roman',serif}.caps{text-transform:uppercase;letter-spacing:.14em}
+.wrap{width:min(1200px,calc(100% - 8vw));margin:auto}
+
+/* NAV */
+.topbar{position:fixed;inset:0 0 auto;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:22px 4vw;mix-blend-mode:difference;color:#fff;pointer-events:none}
+.topbar>*{pointer-events:auto}.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.04em}.brand img{width:46px;height:46px;border-radius:50%;object-fit:cover;background:#fff}.nav{display:flex;gap:20px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.16em}.nav a{padding-bottom:4px;border-bottom:1px solid transparent}.nav a:hover{border-color:currentColor}
+
+/* HERO */
+.hero{min-height:100svh;display:grid;grid-template-columns:52% 48%;background:#0d0d0d;color:#fff;position:relative;overflow:hidden}.heroCopy{padding:15vh 4vw 8vh;display:flex;flex-direction:column;justify-content:space-between;z-index:2}.heroLogo{width:96px;height:96px;border-radius:50%;overflow:hidden;background:#fff}.heroTitle{font-family:Georgia,'Times New Roman',serif;font-size:clamp(68px,10vw,170px);line-height:.78;letter-spacing:-.055em;font-weight:400;margin:0;max-width:7ch}.heroTitle em{display:block;font-weight:400;margin-left:.45ch}.heroBottom{display:flex;justify-content:space-between;align-items:end;gap:30px}.heroText{max-width:450px;font-family:Georgia,'Times New Roman',serif;font-size:clamp(20px,2vw,30px);line-height:1.15;margin:0}.circle{width:110px;height:110px;border:1px solid #fff;border-radius:50%;display:grid;place-items:center;text-align:center;font-size:10px;text-transform:uppercase;letter-spacing:.15em;transition:.25s}.circle:hover{background:#fff;color:#111;transform:rotate(-6deg)}.heroMedia{position:relative;min-height:100svh}.heroMedia img{object-position:center}.heroTag{position:absolute;right:3vw;bottom:4vh;border:1px solid rgba(255,255,255,.55);border-radius:999px;padding:10px 14px;font-size:10px;text-transform:uppercase;letter-spacing:.15em;background:rgba(0,0,0,.18);backdrop-filter:blur(6px)}
+
+.marquee{overflow:hidden;border-top:1px solid #111;border-bottom:1px solid #111;background:#fff}.track{display:flex;gap:38px;white-space:nowrap;width:max-content;padding:18px 0;animation:marquee 22s linear infinite}.track span{font-family:Georgia,'Times New Roman',serif;font-size:clamp(28px,4.8vw,68px)}.track span:after{content:'✦';font-family:Arial;margin-left:38px;font-size:.55em}@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* INTRO */
+.intro{padding:14vw 0 12vw;display:grid;grid-template-columns:1.1fr .9fr;gap:10vw;align-items:start}.eyebrow{font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;margin-bottom:24px}.intro h2,.sectionHead h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(58px,8vw,128px);line-height:.86;font-weight:400;letter-spacing:-.045em;margin:0}.intro h2 em,.sectionHead h2 em{display:block;margin-left:.8ch;font-weight:400}.introRight{padding-top:5vw}.introRight p{font-family:Georgia,'Times New Roman',serif;font-size:clamp(22px,2.4vw,34px);line-height:1.22;margin:0 0 34px}.chips{display:flex;flex-wrap:wrap;gap:10px}.chip{border:1px solid #111;border-radius:999px;padding:10px 15px;font-size:10px;text-transform:uppercase;letter-spacing:.13em}
+
+/* FEATURE */
+.feature{display:grid;grid-template-columns:58% 42%;min-height:92svh;background:#151515;color:#fff}.featureMedia{min-height:92svh;overflow:hidden}.featureMedia img{transition:transform 1s ease}.feature:hover .featureMedia img{transform:scale(1.025)}.featureCopy{padding:8vw 5vw;display:flex;flex-direction:column;justify-content:space-between}.featureCopy .num{font-size:10px;letter-spacing:.16em;text-transform:uppercase;opacity:.75}.featureCopy h3{font-family:Georgia,'Times New Roman',serif;font-size:clamp(56px,7vw,110px);line-height:.9;font-weight:400;margin:0 0 24px}.featureCopy p{max-width:470px;color:#d8d8d8;line-height:1.55;font-size:15px}.textLink{display:inline-flex;align-items:center;gap:12px;margin-top:18px;border-bottom:1px solid currentColor;padding-bottom:6px;font-size:11px;text-transform:uppercase;letter-spacing:.14em}
+
+/* DRINK STORY – intentionally spaced */
+.products{padding:14vw 0}.sectionHead{display:flex;justify-content:space-between;align-items:end;gap:5vw;margin-bottom:10vw}.sectionHead p{max-width:370px;color:var(--muted);line-height:1.6}.productStory{display:grid;grid-template-columns:1fr 1fr;gap:10vw 8vw;align-items:start}.shot{position:relative}.shot .frame{overflow:hidden;background:#eee}.shot.tall .frame{height:72vw;max-height:920px}.shot.square .frame{aspect-ratio:1/1}.shot.medium .frame{height:56vw;max-height:720px}.shot:nth-child(even){margin-top:11vw}.shot:nth-child(3){margin-left:8vw}.shot:nth-child(4){margin-right:7vw}.shot:nth-child(5){margin-left:2vw}.shot:nth-child(6){margin-right:11vw}.shot img{transition:transform .8s ease}.shot:hover img{transform:scale(1.02)}.caption{display:flex;justify-content:space-between;gap:18px;margin-top:14px;font-size:11px;text-transform:uppercase;letter-spacing:.12em}.caption span:last-child{color:var(--muted)}
+
+/* MENU */
+.menuSection{background:#111;color:#fff;padding:12vw 0}.menuIntro{display:grid;grid-template-columns:1fr 1fr;gap:8vw;align-items:end;margin-bottom:8vw}.menuIntro h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(62px,8vw,124px);line-height:.86;font-weight:400;margin:0}.menuIntro p{max-width:480px;color:#cfcfcf;line-height:1.6}.menuCards{display:grid;grid-template-columns:1fr 1fr;gap:6vw}.menuCard{background:#fff;min-height:680px;overflow:hidden}.menuCard img{object-fit:cover}.menuNote{margin-top:38px;color:#bcbcbc;font-size:12px;line-height:1.6;max-width:720px}
+
+/* SEASONAL */
+.season{padding:14vw 0}.seasonGrid{display:grid;grid-template-columns:.85fr 1.15fr;gap:9vw;align-items:center}.seasonPhoto{height:74vw;max-height:900px;overflow:hidden}.seasonCopy h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(58px,7.5vw,112px);line-height:.9;font-weight:400;margin:0 0 26px}.seasonCopy p{font-family:Georgia,'Times New Roman',serif;font-size:clamp(21px,2vw,30px);line-height:1.3;color:#383838}.seasonCopy small{display:block;margin-top:28px;color:var(--muted);font-size:11px;line-height:1.6}
+
+/* BRANCH */
+.branch{display:grid;grid-template-columns:44% 56%;background:var(--blue);color:#fff;min-height:78svh}.branchCopy{padding:8vw 4vw;display:flex;flex-direction:column;justify-content:space-between}.branchCopy h2{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(58px,7vw,108px);line-height:.88;margin:0}.branchCopy p{max-width:400px;line-height:1.55}.branchMedia{min-height:78svh;overflow:hidden}.branchMedia img{object-fit:cover}
+
+/* VIDEOS */
+.videos{padding:14vw 0}.videoHead{display:flex;justify-content:space-between;gap:6vw;align-items:end;margin-bottom:8vw}.videoHead h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(64px,8vw,120px);font-weight:400;line-height:.85;margin:0}.videoHead p{max-width:420px;color:var(--muted);line-height:1.6}.videoGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:34px}.videoCard{min-height:340px;padding:30px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid #111;transition:.25s}.videoCard:nth-child(1){background:#111;color:#fff}.videoCard:nth-child(2){background:#ff8d12}.videoCard:nth-child(3){background:#f063b7}.videoCard:nth-child(4){background:#154cff;color:#fff}.videoCard:nth-child(5){background:#6c9f2a}.videoCard:hover{transform:translateY(-5px)}.videoCard .play{font-size:54px}.videoCard strong{font-family:Georgia,'Times New Roman',serif;font-size:clamp(30px,3vw,48px);font-weight:400}.videoCard small{text-transform:uppercase;letter-spacing:.14em;font-size:10px}
+
+/* FOOTER */
+footer{background:#0d0d0d;color:#fff;padding:9vw 4vw 3vw}.footerTop{display:grid;grid-template-columns:1.2fr .8fr;gap:6vw}.footerName{font-family:Georgia,'Times New Roman',serif;font-size:clamp(58px,8vw,120px);line-height:.82}.footerLinks{display:grid;gap:14px;align-content:start;font-size:12px;text-transform:uppercase;letter-spacing:.15em}.footerBottom{display:flex;justify-content:space-between;gap:20px;border-top:1px solid #333;margin-top:8vw;padding-top:22px;font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:#999}
+
+.reveal{opacity:0;transform:translateY(28px);transition:.75s ease}.reveal.show{opacity:1;transform:none}
+@media(max-width:900px){
+  .nav{display:none}.hero{grid-template-columns:1fr}.heroCopy{min-height:58svh;padding-top:14vh}.heroMedia{min-height:54svh}.heroTitle{font-size:20vw}.heroBottom{align-items:end}.circle{width:88px;height:88px}.intro{grid-template-columns:1fr;gap:48px;padding:20vw 0}.introRight{padding-top:0}.feature{grid-template-columns:1fr}.featureMedia{min-height:65svh}.featureCopy{min-height:64svh;padding:13vw 6vw}.sectionHead{flex-direction:column;align-items:start}.productStory{grid-template-columns:1fr;gap:20vw}.shot:nth-child(even),.shot:nth-child(3),.shot:nth-child(4),.shot:nth-child(5),.shot:nth-child(6){margin:0}.shot.tall .frame,.shot.medium .frame{height:125vw;max-height:none}.menuIntro{grid-template-columns:1fr}.menuCards{grid-template-columns:1fr;gap:10vw}.menuCard{min-height:auto}.seasonGrid{grid-template-columns:1fr}.seasonPhoto{height:125vw}.branch{grid-template-columns:1fr}.branchCopy{min-height:60svh;padding:15vw 6vw}.branchMedia{min-height:60svh}.videoHead{flex-direction:column;align-items:start}.videoGrid{grid-template-columns:1fr}.footerTop{grid-template-columns:1fr}.footerLinks{margin-top:30px}.footerBottom{flex-direction:column}.wrap{width:min(100% - 10vw,1200px)}
+}
+@media(max-width:520px){.heroText{max-width:65%;font-size:17px}.heroLogo{width:76px;height:76px}.productStory{gap:24vw}.videoCard{min-height:280px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}.track{animation:none}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#inicio"><img src="logo.jpg" alt="Logo La Casita de las Marquesitas"><span>La Casita</span></a>
+  <nav class="nav"><a href="#sabores">Sabores</a><a href="#menu">Menú</a><a href="#sucursal">Sucursal</a><a href="#videos">Videos</a></nav>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="heroCopy">
+      <div class="heroLogo"><img src="logo.jpg" alt="La Casita de las Marquesitas"></div>
+      <h1 class="heroTitle">La Casita<em>de las Marquesitas.</em></h1>
+      <div class="heroBottom"><p class="heroText">Crujiente por fuera, cremosa por dentro y hecha para antojarse desde la primera mirada.</p><a class="circle" href="#sabores">Ver<br>sabores ↓</a></div>
+    </div>
+    <div class="heroMedia"><img src="1000185738.jpg" alt="Bebida de fresa La Casita de las Marquesitas"><div class="heroTag">Postres · Bebidas · Marquesitas</div></div>
+  </section>
+
+  <section class="marquee" aria-label="Especialidades">
+    <div class="track"><span>Marquesitas</span><span>Antojo</span><span>Crunch</span><span>Postres</span><span>Bebidas</span><span>Marquesitas</span><span>Antojo</span><span>Crunch</span><span>Postres</span><span>Bebidas</span></div>
+  </section>
+
+  <section class="intro wrap reveal">
+    <div><div class="eyebrow">01 · Nuestra esencia</div><h2>Un antojo<br><em>con personalidad.</em></h2></div>
+    <div class="introRight"><p>Una marca divertida, directa y visual: marquesitas, bebidas frías y postres con combinaciones que cambian el mood desde el primer vistazo.</p><div class="chips"><span class="chip">Marquesitas</span><span class="chip">Bebidas</span><span class="chip">Postres</span><span class="chip">Toppings</span><span class="chip">Temporada</span></div></div>
+  </section>
+
+  <section class="feature" id="sabores">
+    <div class="featureMedia"><img src="1000185740.jpg" alt="Postre en vaso con fresas y helado"></div>
+    <div class="featureCopy reveal"><div class="num">02 / El antojo</div><div><h3>Capas,<br>crunch &<br>crema.</h3><p>Texturas, fruta, chocolate y toppings presentados como protagonistas. Cada producto tiene espacio para lucirse sin llenar la página de imágenes pegadas.</p><a class="textLink" href="#menu">Explorar el menú <span>→</span></a></div></div>
+  </section>
+
+  <section class="products wrap">
+    <div class="sectionHead reveal"><div><div class="eyebrow">03 · Bebidas</div><h2>Color para<br><em>cada antojo.</em></h2></div><p>Una selección visual de bebidas y postres. Cada fotografía aparece como una pieza independiente para mantener el ritmo editorial limpio.</p></div>
+    <div class="productStory">
+      <article class="shot tall reveal"><div class="frame"><img src="1000185739.jpg" alt="Bebida con chocolate sobre fondo naranja"></div><div class="caption"><span>Chocolate</span><span>La Casita</span></div></article>
+      <article class="shot square reveal"><div class="frame"><img src="1000185737.jpg" alt="Bebida clara sobre fondo azul"></div><div class="caption"><span>Clásica</span><span>Fría & cremosa</span></div></article>
+      <article class="shot medium reveal"><div class="frame"><img src="1000185736.jpg" alt="Bebida con galleta Lotus y fondo verde"></div><div class="caption"><span>Lotus</span><span>Crunch</span></div></article>
+      <article class="shot tall reveal"><div class="frame"><img src="1000185735.jpg" alt="Bebida con Oreo sobre fondo oscuro"></div><div class="caption"><span>Oreo</span><span>Cookies & cream</span></div></article>
+      <article class="shot square reveal"><div class="frame"><img src="1000185738.jpg" alt="Bebida de fresa sobre fondo morado"></div><div class="caption"><span>Fresa</span><span>Fresh mood</span></div></article>
+      <article class="shot medium reveal"><div class="frame"><img src="1000185740.jpg" alt="Postre en vaso con fresa y helado"></div><div class="caption"><span>Postre</span><span>Capas & textura</span></div></article>
+    </div>
+  </section>
+
+  <section class="menuSection" id="menu">
+    <div class="wrap">
+      <div class="menuIntro reveal"><h2>El menú<br>en grande.</h2><p>Las especialidades y precios se muestran en sus piezas originales para respetar la información publicada por la marca.</p></div>
+      <div class="menuCards"><div class="menuCard reveal"><img src="1000185734.jpg" alt="Menú La Casita de las Marquesitas parte 1"></div><div class="menuCard reveal"><img src="1000185733.jpg" alt="Menú La Casita de las Marquesitas parte 2"></div></div>
+      <p class="menuNote">Los precios e ingredientes mostrados corresponden a las imágenes proporcionadas por la marca y pueden cambiar. Confirma disponibilidad al realizar tu pedido.</p>
+    </div>
+  </section>
+
+  <section class="season wrap">
+    <div class="seasonGrid">
+      <div class="seasonPhoto reveal"><img src="1000185743.jpg" alt="Producto de temporada La Casita de las Marquesitas"></div>
+      <div class="seasonCopy reveal"><div class="eyebrow">04 · Temporada</div><h2>Siempre hay<br>algo nuevo.</h2><p>Ediciones de temporada y combinaciones especiales para que la experiencia no se sienta repetida.</p><small>Imagen tomada de una publicación compartida por la marca.</small></div>
+    </div>
+  </section>
+
+  <section class="branch" id="sucursal">
+    <div class="branchCopy reveal"><div><div class="eyebrow">05 · Nueva sucursal</div><h2>Blvd.<br>Hidalgo.</h2></div><p>Una nueva ubicación para seguir creciendo la experiencia de La Casita. Consulta en redes la información actualizada de apertura, horarios y disponibilidad.</p></div>
+    <div class="branchMedia"><img src="promo_blvd_hidalgo.jpg" alt="Promoción nueva sucursal Blvd. Hidalgo"></div>
+  </section>
+
+  <section class="videos wrap" id="videos">
+    <div class="videoHead reveal"><h2>En<br>movimiento.</h2><p>Reels, videos y momentos de la marca. Cada tarjeta abre directamente la publicación original en Facebook.</p></div>
+    <div class="videoGrid">
+      <a class="videoCard reveal" href="https://www.facebook.com/share/r/1Bpcei1XF1/" target="_blank" rel="noopener"><span class="play">▶</span><strong>Video 01</strong><small>Ver en Facebook ↗</small></a>
+      <a class="videoCard reveal" href="https://www.facebook.com/share/r/1DEg3bt8Zk/" target="_blank" rel="noopener"><span class="play">▶</span><strong>Video 02</strong><small>Ver en Facebook ↗</small></a>
+      <a class="videoCard reveal" href="https://www.facebook.com/share/v/1MbW7ATtgv/" target="_blank" rel="noopener"><span class="play">▶</span><strong>Video 03</strong><small>Ver en Facebook ↗</small></a>
+      <a class="videoCard reveal" href="https://www.facebook.com/share/r/19TN5xBhzp/" target="_blank" rel="noopener"><span class="play">▶</span><strong>Video 04</strong><small>Ver en Facebook ↗</small></a>
+      <a class="videoCard reveal" href="https://www.facebook.com/share/r/1GrHmykhCD/" target="_blank" rel="noopener"><span class="play">▶</span><strong>Video 05</strong><small>Ver en Facebook ↗</small></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footerTop"><div class="footerName">La Casita<br>de las Marquesitas.</div><div class="footerLinks"><a href="#inicio">Inicio ↑</a><a href="#sabores">Sabores</a><a href="#menu">Menú</a><a href="#sucursal">Sucursal</a><a href="#videos">Videos</a></div></div>
+  <div class="footerBottom"><span>La Casita de las Marquesitas · 2026</span><span>Diseño web editorial</span></div>
+</footer>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
